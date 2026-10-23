@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kadak Chai Co. – Lahore</title>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#ffffff; --ink:#14214d; --muted:#4d5a85; --surface:#eef2ff; --line:#cfd8f5;
+  --blue:#1636a8; --pink:#e0267a; --yellow:#ffc61a; --on-blue:#ffffff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0d1230; --ink:#f2f4ff; --muted:#aab4e0; --surface:#171f4a; --line:#2c3772;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0d1230; --ink:#f2f4ff; --muted:#aab4e0; --surface:#171f4a; --line:#2c3772;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Figtree',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:1.05rem;line-height:1.6}
+h1,h2,h3{font-family:'Bowlby One','Arial Black',Impact,sans-serif;font-weight:400;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* hero */
+.hero{background:var(--blue);color:var(--on-blue);border-bottom:10px solid var(--yellow);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:10px;background:repeating-linear-gradient(90deg,var(--pink) 0 24px,transparent 24px 48px)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:'Bowlby One','Arial Black',sans-serif;font-size:1.2rem;color:var(--yellow);text-decoration:none}
+nav a.link{color:var(--on-blue);font-weight:600;text-decoration:none;margin-left:18px}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding:28px 0 64px}
+h1{font-size:clamp(2.4rem,7vw,4.6rem);color:var(--yellow)}
+.hero p.lead{max-width:34ch;margin:18px 0 0;font-size:1.15rem;color:#dfe6ff}
+
+/* builder */
+.builder{background:var(--bg);color:var(--ink);border-radius:22px;padding:22px;border:3px solid var(--yellow);box-shadow:8px 8px 0 var(--pink)}
+.builder h2{font-size:1.4rem;margin-bottom:14px}
+fieldset{border:0;padding:0;margin:0 0 14px}
+legend{font-weight:700;margin-bottom:6px;padding:0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label{padding:7px 14px;border:2px solid var(--line);border-radius:999px;cursor:pointer;font-weight:600;background:var(--surface);transition:background .15s,border-color .15s}
+.opts input:checked+label{background:var(--blue);border-color:var(--blue);color:#fff}
+.opts input:focus-visible+label{outline:3px solid var(--pink);outline-offset:2px}
+.preview{display:flex;align-items:center;gap:16px;border-top:2px dashed var(--line);padding-top:14px;margin-top:6px}
+.cup{width:84px;height:84px;flex:none}
+.liquid{transition:fill .35s}
+.summary{flex:1}
+.summary strong{display:block;font-size:1.05rem}
+.price{font-family:'Bowlby One',sans-serif;font-size:1.6rem;color:var(--pink)}
+button.order{margin-top:6px;background:var(--pink);color:#fff;border:0;border-radius:12px;padding:11px 18px;font:700 1rem 'Figtree',sans-serif;cursor:pointer}
+button.order:hover{filter:brightness(1.08)}
+.confirm{margin:10px 0 0;font-weight:600;min-height:1.6em;color:var(--blue)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .confirm{color:var(--yellow)}}
+
+/* sections */
+section{padding:64px 0}
+h2.sec{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:8px}
+.sub{color:var(--muted);max-width:52ch;margin:0 0 28px}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.item{display:flex;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:2px dotted var(--line)}
+.item b{display:block}
+.item span.d{color:var(--muted);font-size:.95rem}
+.item .p{font-weight:700;white-space:nowrap}
+.visit{background:var(--surface)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:8px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-weight:600}
+footer{background:var(--blue);color:#dfe6ff;padding:28px 0;border-top:10px solid var(--yellow);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  .hero-grid,.menu,.visit-grid{grid-template-columns:1fr}
+  .hero-grid{padding-bottom:48px}
+  nav a.link{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#top">Kadak Chai Co.</a>
+      <div><a class="link" href="#menu">Menu</a><a class="link" href="#visit">Visit us</a></div>
+    </nav>
+    <div class="hero-grid" id="top">
+      <div>
+        <h1>Chai jo dil se kadak.</h1>
+        <p class="lead">Dhimi aanch par pakki hui doodh patti, seedha Gulberg ke chowk se. Apni chai khud banao, hum garam garam pohcha denge.</p>
+      </div>
+
+      <div class="builder" aria-labelledby="bt">
+        <h2 id="bt">Apni chai banao</h2>
+        <fieldset>
+          <legend>Patti</legend>
+          <div class="opts" data-group="strength">
+            <input type="radio" name="strength" id="s1" value="Halki" data-price="0" data-color="#e8b878"><label for="s1">Halki</label>
+            <input type="radio" name="strength" id="s2" value="Normal" data-price="0" data-color="#c2823a" checked><label for="s2">Normal</label>
+            <input type="radio" name="strength" id="s3" value="Kadak" data-price="20" data-color="#7a3f14"><label for="s3">Kadak (+20)</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Meetha</legend>
+          <div class="opts">
+            <input type="radio" name="sugar" id="m1" value="Feeka" data-price="0"><label for="m1">Feeka</label>
+            <input type="radio" name="sugar" id="m2" value="Meetha" data-price="0" checked><label for="m2">Meetha</label>
+            <input type="radio" name="sugar" id="m3" value="Extra meetha" data-price="0"><label for="m3">Extra meetha</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Upar se</legend>
+          <div class="opts">
+            <input type="checkbox" name="extra" id="e1" value="elaichi" data-price="20"><label for="e1">Elaichi (+20)</label>
+            <input type="checkbox" name="extra" id="e2" value="adrak" data-price="20"><label for="e2">Adrak (+20)</label>
+            <input type="checkbox" name="extra" id="e3" value="malai" data-price="30"><label for="e3">Malai (+30)</label>
+          </div>
+        </fieldset>
+        <div class="preview">
+          <svg class="cup" viewBox="0 0 100 100" role="img" aria-label="Chai cup preview">
+            <path d="M18 34h56v26a24 24 0 0 1-24 24h-8a24 24 0 0 1-24-24z" fill="#ffffff" stroke="#14214d" stroke-width="4"/>
+            <path class="liquid" id="liquid" d="M22 40h48v20a20 20 0 0 1-20 20h-8a20 20 0 0 1-20-20z" fill="#c2823a"/>
+            <path d="M74 42h6a9 9 0 0 1 0 18h-8" fill="none" stroke="#14214d" stroke-width="4"/>
+            <path d="M36 24c-4-5 4-8 0-14M50 24c-4-5 4-8 0-14M64 24c-4-5 4-8 0-14" fill="none" stroke="#e0267a" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div class="summary">
+            <strong id="sum">Normal patti, meetha</strong>
+            <span class="price" id="price">Rs 80</span>
+          </div>
+        </div>
+        <button class="order" id="order" type="button">Order karo</button>
+        <p class="confirm" id="confirm" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="menu">
+  <div class="wrap">
+    <h2 class="sec">Menu</h2>
+    <p class="sub">Sab kuch kulhad ya cup mein. Chai ke saath kuch khaana ho to ye rahi list.</p>
+    <div class="menu">
+      <div class="item"><div><b>Doodh patti</b><span class="d">Roz ki chai, dhimi aanch par</span></div><span class="p">Rs 80</span></div>
+      <div class="item"><div><b>Karak masala chai</b><span class="d">Adrak, elaichi, laung</span></div><span class="p">Rs 120</span></div>
+      <div class="item"><div><b>Kashmiri chai</b><span class="d">Gulabi, badaam aur pista ke saath</span></div><span class="p">Rs 220</span></div>
+      <div class="item"><div><b>Anda paratha</b><span class="d">Garam tawa, desi ghee</span></div><span class="p">Rs 250</span></div>
+      <div class="item"><div><b>Bun kabab</b><span class="d">Chutney aur pyaaz ke saath</span></div><span class="p">Rs 180</span></div>
+      <div class="item"><div><b>Rusk aur chai</b><span class="d">Do rusk, ek cup</span></div><span class="p">Rs 140</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <h2 class="sec">Aa jao</h2>
+      <p class="sub">Main Boulevard se thora andar, mosque ke saamne wali gali. Bahar charpai laga rakhi hai.</p>
+      <p><b>Phone:</b> 0300 1234567<br><b>Delivery:</b> Gulberg, Model Town, DHA Phase 1 se 5</p>
+    </div>
+    <table class="hours" aria-label="Opening hours">
+      <tr><td>Peer se Jumeraat</td><td>7 subah se 1 raat</td></tr>
+      <tr><td>Jumma</td><td>7 subah se 2 raat</td></tr>
+      <tr><td>Itwaar</td><td>8 subah se 12 raat</td></tr>
+    </table>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Kadak Chai Co., Lahore</span><span>Chai pe milte hain.</span></div>
+</footer>
+
+<script>
+(function(){
+  var base=80;
+  var liquid=document.getElementById('liquid');
+  var sum=document.getElementById('sum');
+  var priceEl=document.getElementById('price');
+  var confirmEl=document.getElementById('confirm');
+  function checked(name){return document.querySelector('input[name="'+name+'"]:checked');}
+  function update(){
+    var s=checked('strength'), m=checked('sugar');
+    var extras=[].slice.call(document.querySelectorAll('input[name="extra"]:checked'));
+    var total=base+Number(s.dataset.price)+extras.reduce(function(a,e){return a+Number(e.dataset.price);},0);
+    liquid.setAttribute('fill',s.dataset.color);
+    var text=s.value+' patti, '+m.value.toLowerCase();
+    if(extras.length){text+=', '+extras.map(function(e){return e.value;}).join(' + ');}
+    sum.textContent=text;
+    priceEl.textContent='Rs '+total;
+    confirmEl.textContent='';
+  }
+  document.querySelectorAll('.builder input').forEach(function(i){i.addEventListener('change',update);});
+  document.getElementById('order').addEventListener('click',function(){
+    confirmEl.textContent='Order lag gaya! '+sum.textContent+' ('+priceEl.textContent+') aa rahi hai.';
+  });
+  update();
+})();
+</script>
+</body>
+</html>
